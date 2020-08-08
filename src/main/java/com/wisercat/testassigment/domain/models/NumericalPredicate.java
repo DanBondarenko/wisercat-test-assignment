@@ -14,7 +14,6 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Getter
-@DiscriminatorValue("numerical")
 public class NumericalPredicate extends Predicate {
     private float fixedOperand;
     @Embedded

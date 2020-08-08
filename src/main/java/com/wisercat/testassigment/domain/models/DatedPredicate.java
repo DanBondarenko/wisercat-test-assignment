@@ -15,7 +15,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Getter
-@DiscriminatorValue("dated")
 public class DatedPredicate extends Predicate {
     private LocalDate fixedOperand;
     @Embedded
