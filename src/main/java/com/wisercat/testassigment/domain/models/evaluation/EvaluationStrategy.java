@@ -6,10 +6,27 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Embeddable;
 import javax.persistence.MappedSuperclass;
 import java.util.Collection;
+import java.util.stream.Stream;
 
-@Embeddable
-@MappedSuperclass
-@NoArgsConstructor
-public abstract class EvaluationStrategy extends BaseEntity {
-    public abstract boolean evaluate(Collection<Boolean> predicateResults);
+public enum EvaluationStrategy {
+    ALL_MATCH {
+        @Override
+        public boolean evaluate(Stream<Boolean> predicateResults) {
+            return predicateResults.allMatch(Boolean::booleanValue);
+        }
+    },
+    ANY_MATCH {
+        @Override
+        public boolean evaluate(Stream<Boolean> predicateResults) {
+            return predicateResults.anyMatch(Boolean::booleanValue);
+        }
+    },
+    NONE_MATCH {
+        @Override
+        public boolean evaluate(Stream<Boolean> predicateResults) {
+            return predicateResults.noneMatch(Boolean::booleanValue);
+        }
+    };
+
+    public abstract boolean evaluate(Stream<Boolean> predicateResults);
 }

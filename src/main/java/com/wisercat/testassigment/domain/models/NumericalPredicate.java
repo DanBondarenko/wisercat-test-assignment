@@ -2,25 +2,23 @@ package com.wisercat.testassigment.domain.models;
 
 import com.wisercat.testassigment.domain.models.conditions.NumericalCondition;
 import com.wisercat.testassigment.domain.models.evaluation.Evaluatable;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.DiscriminatorValue;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
 @Getter
 public class NumericalPredicate extends Predicate {
     private float fixedOperand;
-    @Embedded
+    @Enumerated(EnumType.STRING)
     private NumericalCondition condition;
 
     @Override
     boolean evaluate(Evaluatable evaluatableObject) {
-        return condition.test(fixedOperand, evaluatableObject.getNumber());
+        return condition.evaluate(fixedOperand, evaluatableObject.getNumber());
     }
 }

@@ -1,9 +1,24 @@
 package com.wisercat.testassigment.domain.models.conditions;
 
-import javax.persistence.Embeddable;
-import javax.persistence.MappedSuperclass;
-import java.util.function.BiPredicate;
+public enum TextualCondition {
+    ENDS_WITH {
+        @Override
+        public boolean evaluate(String fixedOperand, String variableOperand) {
+            return fixedOperand.endsWith(variableOperand);
+        }
+    },
+    EQUAL {
+        @Override
+        public boolean evaluate(String fixedOperand, String variableOperand) {
+            return fixedOperand.equals(variableOperand);
+        }
+    },
+    STARTS_WITH {
+        @Override
+        public boolean evaluate(String fixedOperand, String variableOperand) {
+            return fixedOperand.startsWith(variableOperand);
+        }
+    };
 
-@Embeddable
-@MappedSuperclass
-public abstract class TextualCondition implements BiPredicate<String, String> {}
+    public abstract boolean evaluate(String fixedOperand, String variableOperand);
+}
