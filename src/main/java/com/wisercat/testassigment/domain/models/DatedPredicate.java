@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import java.time.LocalDate;
@@ -14,6 +15,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Getter
+@DiscriminatorValue("dated")
 public class DatedPredicate extends Predicate {
     private LocalDate fixedOperand;
     @Embedded

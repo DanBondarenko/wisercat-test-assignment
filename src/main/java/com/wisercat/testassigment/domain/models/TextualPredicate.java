@@ -12,6 +12,7 @@ import javax.persistence.*;
 @RequiredArgsConstructor
 @NoArgsConstructor
 @Getter
+@DiscriminatorValue("textual")
 public class TextualPredicate extends Predicate {
     private String fixedOperand;
     @Embedded

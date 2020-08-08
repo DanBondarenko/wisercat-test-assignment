@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 
@@ -13,6 +14,7 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @RequiredArgsConstructor
 @Getter
+@DiscriminatorValue("numerical")
 public class NumericalPredicate extends Predicate {
     private float fixedOperand;
     @Embedded
