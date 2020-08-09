@@ -1,6 +1,7 @@
 package com.wisercat.testassigment.controllers;
 
 import com.wisercat.testassigment.domain.models.Filter;
+import com.wisercat.testassigment.exceptions.NotYetImplementedException;
 import com.wisercat.testassigment.persistence.repositories.FilterRepository;
 import com.wisercat.testassigment.persistence.services.FilterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,11 +11,13 @@ import org.springframework.hateoas.IanaLinkRelations;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
 @RestController
-@RequestMapping("/api/filters")
+@RequestMapping(path = "/api/filters")
 public class FilterRestController {
     private final FilterService service;
     private final FilterRepository repository;
@@ -49,11 +52,11 @@ public class FilterRestController {
 
     @GetMapping("/{id}")
     EntityModel<Filter> one(@PathVariable Long id) {
-        throw new UnsupportedOperationException();
+        throw new NotYetImplementedException();
     }
 
     @GetMapping("/")
     public CollectionModel<EntityModel<Filter>> all() {
-        throw new UnsupportedOperationException();
+        throw new NotYetImplementedException();
     }
 }
