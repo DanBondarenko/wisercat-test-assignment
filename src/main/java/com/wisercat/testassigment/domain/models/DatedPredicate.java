@@ -1,26 +1,30 @@
 package com.wisercat.testassigment.domain.models;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.wisercat.testassigment.domain.models.conditions.DatedCondition;
 import com.wisercat.testassigment.domain.models.evaluation.Evaluatable;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
-@NoArgsConstructor
-@Getter
+@Data
+@JsonTypeName("date")
 public class DatedPredicate extends Predicate {
+    @NotNull
+    @Column(nullable = false)
     private LocalDate fixedOperand;
+    @NotNull
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private DatedCondition condition;
 
     @Override
-    boolean evaluate(Evaluatable evaluatableObject) {
-        return condition.evaluate(fixedOperand, evaluatableObject.getDate());
+    boolean evaluate(Evaluatable evaluableObject) {
+        return condition.evaluate(fixedOperand, evaluableObject.getDate());
     }
 }

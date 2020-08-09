@@ -1,24 +1,28 @@
 package com.wisercat.testassigment.domain.models;
 
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.wisercat.testassigment.domain.models.conditions.NumericalCondition;
 import com.wisercat.testassigment.domain.models.evaluation.Evaluatable;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
-@NoArgsConstructor
-@Getter
+@Data
+@JsonTypeName("number")
 public class NumericalPredicate extends Predicate {
-    private float fixedOperand;
+    @NotNull
+    @Column(nullable = false)
+    private Float fixedOperand;
+    @NotNull
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private NumericalCondition condition;
 
     @Override
-    boolean evaluate(Evaluatable evaluatableObject) {
-        return condition.evaluate(fixedOperand, evaluatableObject.getNumber());
+    boolean evaluate(Evaluatable evaluableObject) {
+        return condition.evaluate(fixedOperand, evaluableObject.getNumber());
     }
 }
