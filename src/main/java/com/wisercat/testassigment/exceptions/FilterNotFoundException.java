@@ -1,4 +1,4 @@
-package com.wisercat.testassigment.persistence.exceptions;
+package com.wisercat.testassigment.exceptions;
 
 import java.util.NoSuchElementException;
 

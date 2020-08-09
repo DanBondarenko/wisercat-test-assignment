@@ -1,7 +1,7 @@
 package com.wisercat.testassigment.persistence.services;
 
 import com.wisercat.testassigment.domain.models.Filter;
-import com.wisercat.testassigment.persistence.exceptions.FilterNotFoundException;
+import com.wisercat.testassigment.exceptions.FilterNotFoundException;
 import com.wisercat.testassigment.persistence.repositories.FilterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
