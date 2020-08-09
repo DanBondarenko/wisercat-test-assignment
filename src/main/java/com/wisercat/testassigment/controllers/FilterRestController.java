@@ -41,8 +41,8 @@ public class FilterRestController {
         );
     }
 
-    @PostMapping("/")
-    public ResponseEntity<?> saveFilter(@RequestBody Filter newFilter) {
+    @PostMapping(path = "/", consumes = "application/json")
+    public ResponseEntity<?> saveFilter(@RequestBody @Valid Filter newFilter) {
         EntityModel<Filter> entityModel = assembler.toModel(repository.save(newFilter));
 
         return ResponseEntity
