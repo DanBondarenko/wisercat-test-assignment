@@ -1,10 +1,5 @@
 package com.wisercat.testassigment.domain.models.conditions;
 
-import javax.persistence.Embeddable;
-import javax.persistence.MappedSuperclass;
-import java.time.LocalDate;
-import java.util.function.BiPredicate;
-
 public enum NumericalCondition {
     EQUAL {
         @Override
