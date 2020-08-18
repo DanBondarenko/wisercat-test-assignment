@@ -1,4 +1,4 @@
-package com.wisercat.testassigment;
+package com.wisercat.testassigment.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,6 +15,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception{
         http
+             .csrf()
+                .ignoringAntMatchers("/api/**") // Disable CSRF protection for api
+            .and()
             .authorizeRequests(authorizeRequests ->
                 authorizeRequests
                     .antMatchers("/**").permitAll()
