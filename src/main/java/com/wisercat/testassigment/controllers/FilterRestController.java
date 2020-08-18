@@ -24,7 +24,9 @@ public class FilterRestController {
     private final FilterModelAssembler assembler;
 
     @Autowired
-    public FilterRestController(FilterService service, FilterRepository repository, FilterModelAssembler assembler) {
+    public FilterRestController(FilterService service,
+                                FilterRepository repository,
+                                FilterModelAssembler assembler) {
         this.service = service;
         this.repository = repository;
         this.assembler = assembler;
