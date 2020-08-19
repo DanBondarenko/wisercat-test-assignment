@@ -1,0 +1,28 @@
+{
+  "name": "wisercat",
+  "version": "1.0.0",
+  "description": "An implementation of Wisercat's test assignment by Dan Bondarenko.",
+  "main": "src/main/resources/templates/index.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanBondarenko/wisercat-test-assignment.git"
+  },
+  "author": "Dan Bondarenko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DanBondarenko/wisercat-test-assignment/issues"
+  },
+  "homepage": "https://github.com/DanBondarenko/wisercat-test-assignment#readme",
+  "devDependencies": {
+    "snowpack": "^2.7.7"
+  },
+  "dependencies": {
+    "vue": "^2.6.11",
+    "lodash": "^4.17.20",
+    "axios": "^0.19.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "snowpack install --config ./snowpack.config.json"
+  }
+}

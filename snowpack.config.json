@@ -1,0 +1,12 @@
+{
+  "exclude": ["**/**"],
+  "install": [
+    "vue/dist/vue.esm.browser.js",
+    "axios/dist/axios.js",
+    "lodash"
+  ],
+  "installOptions": {
+    "dest": "src/main/resources/static/js/web_modules",
+    "treeshake": false
+  }
+}
