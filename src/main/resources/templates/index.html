@@ -1,46 +1,50 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" th:lang="${#locale.getLanguage()}">
 
-<head>
-  <meta charset="utf-8">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8">
+    <title th:text="#{index.title}"/>
+    <meta name="description" th:content="#{index.description}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
 
-  <link rel="stylesheet" href="css/normalize.css">
-  <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" th:href="@{css/normalize.css}">
+    <link rel="stylesheet" th:href="@{css/boilerplate.css}">
+    <link rel="stylesheet" th:href="@{css/main.css}">
 
-  <meta name="theme-color" content="#fafafa">
+    <meta name="theme-color" content="#fafafa">
 
-  <!-- Icon configuration -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#010203">
-  <meta name="theme-color" content="#ffffff">
-</head>
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
 
-<body>
+    <!-- Icon configuration -->
+    <link rel="apple-touch-icon" sizes="180x180" th:href="@{apple-touch-icon.png}">
+    <link rel="icon" type="image/png" sizes="32x32" th:href="@{favicon-32x32.png}">
+    <link rel="icon" type="image/png" sizes="16x16" th:href="@{favicon-16x16.png}">
+    <link rel="manifest" th:href="@{site.webmanifest}">
+    <link rel="mask-icon" th:href="@{safari-pinned-tab.svg}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#010203">
+    <meta name="theme-color" content="#ffffff">
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
-  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
-  <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+    <script src="https://kit.fontawesome.com/293bb34d87.js" crossorigin="anonymous"></script>
+  </head>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
-</body>
+  <body>
+    <main id="app">
+      <filter-creation-starter/>
+    </main>
+
+    <script th:inline="javascript">
+      const messages = [[${messages}]];
+    </script>
+
+    <script th:src="@{js/vendor/modernizr-3.11.2.min.js}"></script>
+    <script th:src="@{js/util/plugins.js}"></script>
+    <script type="module" th:src="@{js/main.js}"></script>
+  </body>
 
 </html>
