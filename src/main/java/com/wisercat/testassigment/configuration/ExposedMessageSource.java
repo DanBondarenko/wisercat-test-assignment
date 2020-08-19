@@ -15,8 +15,6 @@ public class ExposedMessageSource extends ResourceBundleMessageSource {
     public ExposedMessageSource(String basename) {
         this.basename = basename;
         setBasename(basename);
-        setDefaultEncoding("UTF-8");
-
     }
 
     public Map<String, String> getMessages(Locale locale) {
